@@ -22,15 +22,15 @@ module.exports = {
         DROP TABLE IF EXISTS movies;
 
         CREATE TABLE movies (
-            movie_id SERIAL PRIMARY KEY,
+            id SERIAL PRIMARY KEY,
             name VARCHAR NOT NULL,
             url VARCHAR NOT NULL
         );
 
         CREATE TABLE lists (
-            list_id SERIAL PRIMARY KEY,
+            id SERIAL PRIMARY KEY,
             name VARCHAR,
-            movie_id INT REFERENCES movies(movie_id)
+            entry_id INT REFERENCES movies(id)
         );
 
         INSERT INTO movies (name, url)
@@ -38,6 +38,7 @@ module.exports = {
         ('The Grand Budapest Hotel','https://picfiles.alphacoders.com/137/thumb-1920-137212.jpg'),
         ('Parasite','https://i.imgur.com/HLfqBB0.jpeg'),
         ('Oldboy','https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_.jpg');
+
     `).then(() => {
         console.log(`Database seeded`)
         res.sendStatus(200)
@@ -75,5 +76,48 @@ module.exports = {
             console.log(err)
             res.status(500).send(err)
         })
+    },
+
+    createList: (req, res) => {
+        const{name, movie} = req.body
+
+        sequelize.query(`
+            INSERT INTO lists
+            (name, entry_id)
+            VALUES
+            ('${name}', ${entry})
+            RETURNING *;
+        `).then((dbRes) => {
+            console.log('createList ran successfully')
+            res.status(200).send(dbRes[0])
+        }).catch((err) => {
+            console.log('Error in createList')
+            console.log(err)
+            res.status(500).send(err)
+        })
+
+    },
+
+    getLists: (req, res) => {
+
+        sequelize.query(`
+            SELECT
+                movies.id AS movie_id,
+                movies.name AS movie,
+                url,
+                lists.id AS list_id,
+                lists.name as list
+            FROM movies
+            JOIN lists
+            ON movies.id = lists.entry_id;
+        `).then((dbRes) => {
+            console.log('getLists ran succesfully')
+            res.status(200).send(dbRes[0])
+        }).catch((err) => {
+            console.log('Error in getLists')
+            console.log(err)
+            res.status(500).send(err)
+        })
     }
+
 }
