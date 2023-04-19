@@ -36,7 +36,7 @@ module.exports = {
         INSERT INTO movies (name, url)
         VALUES ('Fantastic Mr. Fox', 'https://image.tmdb.org/t/p/original/jAFvXFcup7pQOyofJlxPr6rcFaa.jpg'),
         ('The Grand Budapest Hotel','https://picfiles.alphacoders.com/137/thumb-1920-137212.jpg'),
-        ('Parasite','https://i.imgur.com/HLfqBB0.jpeg'),
+        ('Parasite','https://i.pinimg.com/originals/fc/29/9e/fc299ea038a9171060da4ce24f6c6ba6.jpg'),
         ('Oldboy','https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_.jpg');
 
     `).then(() => {

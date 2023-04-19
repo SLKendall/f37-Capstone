@@ -28,8 +28,8 @@ let createMovie = body => axios.post(baseURL, body)
             }
             
             let bodyObj = {
-                movieName: movieName.value,
-                movieURL: movieURL.value
+                name: movieName.value,
+                url: movieURL.value
             }
 
             createMovie(bodyObj)
@@ -39,11 +39,14 @@ let createMovie = body => axios.post(baseURL, body)
 
         })
 
-function createMovieWrapper(movie) {
+function createMovieCard(movie) {
+    console.log(movie)
+
     let movieWrapper = document.createElement('div')
-    movieWrapper.classList.add('movie-wrapper')
-    movieWrapper.innerHTML = `<img alt='movie-poster' src=${movie.movieURL} class='movie-poster'/>
-    <p class="movie-title>${movie.movieName}</p>
+    movieWrapper.classList.add('movie-card')
+
+    movieWrapper.innerHTML = `<img alt='movie-poster' src=${movie.url} class='movie-poster'/>
+    <p class='movie-title'>${movie.name}</p>
     `
     moviesDisplay.appendChild(movieWrapper)
 }
@@ -51,7 +54,7 @@ function createMovieWrapper(movie) {
 function displayMovies(arr) {
     moviesDisplay.innerHTML = ``
     for (let i = 0; i < arr.length; i++) {
-        createMovieWrapper(arr[i])
+        createMovieCard(arr[i])
     }
 }
 

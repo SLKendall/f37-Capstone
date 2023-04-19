@@ -1,66 +1,60 @@
-//utilize the index.js page from f37-5-review-main
-//particularly the getfighterlist for getMoviesDropDown and so on
+let listForm = document.getElementById('list-form')
+let listName = document.getElementById('list-name')
+let listSelect = document.getElementById('list-select')
+let listSelector = document.getElementById('list-selector')
+let movieSelector = document.getElementById('movie-selector')
+let listsDisplay = document.getElementById('lists-display')
+let loadingReel = document.getElementById('loading-reel')
 
+moviesForm.addEventListener('submit', (event) => {
+    event.preventDefault()
 
-// let moviesForm = document.getElementById('movies-form')
-// let listForm = document.getElementById('list-form')
-// let movieName = document.getElementById('movie-name')
-// let movieURL = document.getElementById('movie-url')
-// let listName = document.getElementById('list-name')
-// let moviesDisplay = document.getElementById('movies-display')
-// let loadingReel = document.getElementById('loading-reel')
-
-// moviesForm.addEventListener('submit', (event) => {
-//     event.preventDefault()
-
-//     if (
-//         movieName.value === '' ||
-//         movieURL.value === ''
-//     ) {
-//         alert ('Please fill out all inputs for your movie.')
-//         return
-//     }
+    if (
+         listName.value === '' 
+    ) {
+        alert ('Please add a name for your list.')
+        return
+    }
     
-//     let bodyObj = {
-//         name: movieName.value,
-//         poster: movieURL.value
-//     }
+    let bodyObj = {
+        name: listName.value
+    }
 
-//     axios.post('http://localhost:5000/movies', bodyObj)
-//         .then((result) => {getMoviesDropDown()}
-//         )
+    axios.post('http://localhost:5000/lists', bodyObj)
+        .then((result) => {getMoviesDropDown()}
+        )
 
-//     movieName.value = ''
-//     movieURL.value = ''
-// })
+    movieName.value = ''
+    movieURL.value = ''
+})
 
-// listForm.addEventListener('submit', (event) => {
-//     event.preventDefault()
+listForm.addEventListener('submit', (event) => {
+    event.preventDefault()
 
-//     if (
-//         listName.value ===''
-//     ) {
-//         alert('Please assign a name to your list.')
-//         return
-//     }
+    if (
+        listName.value ===''
+    ) {
+        alert('Please assign a name to your list.')
+        return
+    }
 
-//     moviesDisplay.innerHTML = ''
-//     loadingReel.classList.remove('hidden')
+    moviesDisplay.innerHTML = ''
+    loadingReel.classList.remove('hidden')
 
-//     let bodyObj = {
-//         name: listName.value
-//     }
+    let bodyObj = {
+        name: listName.value
+    }
 
-//     axios.post('http://localhost:5000/lists', bodyObj)
-//     .then((result) => {updateData()}
-//     ).catch(() => {
-//         loadingReel.classList.add('hidden')
-//         moviesDisplay.innerHTML = ''
-//         alert('Error within data.')
-//         return
-//     })
+    axios.post('http://localhost:5000/lists', bodyObj)
+    .then((result) => {updateData()}
+    ).catch(() => {
+        loadingReel.classList.add('hidden')
+        moviesDisplay.innerHTML = ''
+        alert('Error within data.')
+        return
+    })
 
-//     listName.value = ''
+    listName.value = ''
 
-// })
+})
 

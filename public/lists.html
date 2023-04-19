@@ -1,12 +1,56 @@
 <!--add section tag here for displaying the lists-->
-<!--Consider removing list input in first page and moving it here-->
-<!--<div class="list-form-wrapper">
-                        <form id="list-form">
-                            List Name: <input 
-                                type = 'text'
-                                id="list-name"
-                                placeholder="Whats your list's title?"
-                            />
-                            <button>Create List</button>
-                        </form>
-                    </div>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Office</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>Box Office App</h1>
+        <a href="index.html">Add Movies</a>
+        <a href="lists.html">Create Lists</a>
+    </header>
+
+    <main>
+        <h2>Create lists to categorize your movies!</h2>
+        <div class="app">
+            <div class="input-fields">
+                <form id="list-form">
+                    <h3>Create a list</h3>
+                    List Name: <input 
+                        type = 'text'
+                        id="list-name"
+                        placeholder="Whats your list's title?"
+                    />
+                    <button>Create List</button>
+                </form>
+                <div class="list-select-wrapper">
+                <form id="list-select">
+                    <h3>Select a List and add your movies</h3>
+                    List: <select id="list-selector">
+                        <option value="" disabled selected>Select a List</option>
+                    </select>
+                    Movie: <select id="movie-selector">
+                        <option value="" disabled selected>Select a movie</option>
+                    </select>
+                    <button>Submit</button>
+                </form>
+            </div>
+            </div>
+            
+            <div class='display-field'>
+                <h3>Your lists!</h3>
+                <img id="loading-reel" class="hidden" src="Film_Rolling.gif"/>
+                <section id="lists-display"></section> 
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" ></script>
+    <script src="lists.js"></script>
+</body>
+</html>
