@@ -23,7 +23,7 @@ moviesForm.addEventListener('submit', (event) => {
     }
 
     axios.post('http://localhost:5000/movies', bodyObj)
-        .then((result) => {getMoviesList()}
+        .then((result) => {getMoviesDropDown()}
         )
 
     movieName.value = ''
@@ -59,3 +59,4 @@ listForm.addEventListener('submit', (event) => {
     listName.value = ''
 
 })
+

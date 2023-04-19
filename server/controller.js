@@ -58,6 +58,21 @@ module.exports = {
         })
     },
 
+    getMoviesDropDown: (req, res) => {
+        
+        sequelize.query (`
+            SELECT name, id 
+            FROM movies;
+        `).then((dbRes) => {
+            console.log('getMoviesDropDown ran successfully')
+            res.status(200).send(dbRes[0])
+        }).catch((err) => {
+            console.log('Error with getMoviesDropDown')
+            console.log(err)
+            res.status(500).send(err)
+        })
+    },
+
     createMovie: (req, res) => {
 
         const{name, url} = req.body
