@@ -1,0 +1,168 @@
+* {
+    font-family: monospace;
+    font: Lucidia Console;
+    margin: 0;
+    padding: 0;
+    color: #FFD639;
+}
+
+.hidden {
+    display: none;
+}
+
+header{
+    background-color: #FFD639;
+    border-style: outset;
+    border-color: #FE654F;
+    border-width: 15px;
+}
+
+h1{
+    font-size: 72px;
+    font-weight: bold;
+    padding-top: 50px;
+    color: #48CDAC;
+}
+
+a{
+    font-size: 20px;
+    color: darkgrey;
+}
+
+body {
+    background-color: #48CDAC;
+} 
+.archive{
+    background-color: #2F4858;
+    padding-bottom:30px;
+}
+
+.input-fields{
+    font-size: 16px;
+    display:flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #001B2E;
+    color: #001B2E;
+}
+
+#movies-form{
+    width:10%
+}
+
+#movies-form > h3 {
+    padding-bottom: 45px;
+}
+
+#lists-form{
+    width:35%
+}
+
+button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #FE654F;
+    border: none;
+    color: #FFD639;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px;
+    width: 60px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  button span:after {
+    content: '\00bb';
+    position: relative;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  button:hover span {
+    padding-right: 25px;
+  }
+  
+  button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+#movie-selector{
+    color: #001B2E;
+}
+
+#movie-selector option {
+    color: #001B2E;
+}
+
+#list-name {
+    color: #001B2E;
+}
+
+.display-field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.display-field h3 {
+    font-size: 32px;
+}
+
+#movies-display {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#movies-display h3 {
+    font-size: 48px;
+}
+
+.movie-card {
+    margin:75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    border-style: double;
+    border-color: white;
+    border-width: 30px;
+}
+
+
+.movie-poster {
+    width: 400px; 
+    height: 600px;
+}
+
+.movie-title {
+    width: 400px;
+    background-color: #FFD639;
+    font-size: 24px;
+}
+
+.movie-category {
+    width: 400px;
+    background-color: #FE654F;
+    font-size: 18px;
+    color:white
+}
+
+p {
+    color: white;
+}

@@ -11,11 +11,14 @@
     <header>
         <h1>Box Office App</h1>
         <a href="index.html">Add Movies</a>
-        <a href="lists.html">Create Lists</a>
+        <!-- <a href="lists.html">Create Lists</a> -->
     </header>
 
     <main>
+        <div class="archive">
         <h2>Archive your favorite movies!</h2>
+        </div>
+        
         <div class="app">
             <div class="input-fields">
                 <form id="movies-form">
@@ -31,8 +34,22 @@
                             id = 'movie-url'
                             placeholder="Paste the URL for your movie's poster!"
                         />
-                        <button>Add Movie</button>
-                </form>
+                        <button><span>Submit </span></button>
+                    </form>
+                <div class="lists-wrapper">
+                    <form id="lists-form">
+                        <h3>Create a category and assign it to a movie</h3>
+                        Category: <input 
+                                    type = 'text'
+                                    id = 'list-name'
+                                    placeholder="Category name"
+                                    />
+                        Movie: <select id = 'movie-selector'>
+                                <option value ='' disabled selected>Add Category to Movie</option>
+                        </select>
+                        <button><span>Submit </span></button>
+                    </form>
+                </div>
             </div>
             <div class='display-field'>
                 <h3>Your movies!</h3>

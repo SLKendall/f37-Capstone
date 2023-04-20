@@ -94,7 +94,7 @@ module.exports = {
     },
 
     createList: (req, res) => {
-        const{name, movie} = req.body
+        const{name, entry} = req.body
 
         sequelize.query(`
             INSERT INTO lists

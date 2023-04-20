@@ -1,60 +1,90 @@
-let listForm = document.getElementById('list-form')
-let listName = document.getElementById('list-name')
-let listSelect = document.getElementById('list-select')
-let listSelector = document.getElementById('list-selector')
-let movieSelector = document.getElementById('movie-selector')
-let listsDisplay = document.getElementById('lists-display')
-let loadingReel = document.getElementById('loading-reel')
+// let listsForm = document.getElementById('lists-form')
+// let listName = document.getElementById('list-name')
+// let listSelect = document.getElementById('list-select')
+// let listSelector = document.getElementById('list-selector')
+// let movieSelector = document.getElementById('movie-selector')
+// let listsDisplay = document.getElementById('lists-display')
+// let loadingReel = document.getElementById('loading-reel')
 
-moviesForm.addEventListener('submit', (event) => {
-    event.preventDefault()
 
-    if (
-         listName.value === '' 
-    ) {
-        alert ('Please add a name for your list.')
-        return
-    }
-    
-    let bodyObj = {
-        name: listName.value
-    }
+// listsForm.addEventListener('submit', (event) => {
+//     event.preventDefault()
 
-    axios.post('http://localhost:5000/lists', bodyObj)
-        .then((result) => {getMoviesDropDown()}
-        )
+//     if (
+//         listName.value ===''
+//     ) {
+//         alert('Please assign a name to your list.')
+//         return
+//     }
 
-    movieName.value = ''
-    movieURL.value = ''
-})
+//     listsDisplay.innerHTML = ''
+//     loadingReel.classList.remove('hidden')
 
-listForm.addEventListener('submit', (event) => {
-    event.preventDefault()
+//     let bodyObj = {
+//         name: listName.value
+//     }
 
-    if (
-        listName.value ===''
-    ) {
-        alert('Please assign a name to your list.')
-        return
-    }
+//     axios.post('http://localhost:5000/lists', bodyObj)
+//     .then((result) => {updateData()}
+//     ).catch(() => {
+//         loadingReel.classList.add('hidden')
+//         listsDisplay.innerHTML = ''
+//         alert('Error within data.')
+//         return
+//     })
 
-    moviesDisplay.innerHTML = ''
-    loadingReel.classList.remove('hidden')
+//     listName.value = ''
 
-    let bodyObj = {
-        name: listName.value
-    }
+// })
 
-    axios.post('http://localhost:5000/lists', bodyObj)
-    .then((result) => {updateData()}
-    ).catch(() => {
-        loadingReel.classList.add('hidden')
-        moviesDisplay.innerHTML = ''
-        alert('Error within data.')
-        return
-    })
+// function getmovies() {
+//     axios.get('http://localhost:5000/movies')
+//     .then((result) => {
+//         fillMovieDropDown(result.data)
+//     }).catch((err) => {console.log(err)})
+// }
 
-    listName.value = ''
+// function fillMovieDropDown(data) {
+//     movieSelector.innerHTML = ''
 
-})
+//     let defaultOption = document.createElement('option')
+//     defaultOption.innerHTML = 'Select a movie'
+//     defaultOption.value = ''
+//     defaultOption.disabled = true
+//     defaultOption.selected = true
 
+//     movieSelector.appendChild(defaultOption)
+
+//     for (let i = 0; i < data.length; i++) {
+//         let option = document.createElement('option')
+//         option.innerHTML = data[i].name
+//         option.value = data[i].id
+
+//         movieSelector.appendChild(option)
+//     }
+// }
+
+// function updateData() {
+//     listsDisplay.innerHTML = ''
+//     loadingReel.classList.remove('hide')
+
+//     axios.get('http://localhost:5000/lists')
+//     .then((result) => {
+//         setTimeout(() => {
+//             loadingReel.classList.add('hidden')
+//             displayListData(result.data)
+//         },2000)
+//     }).catch((err) => {
+//         loadingReel.classList.add('hidden')
+//         console.log(err)
+//     })
+// }
+
+// // function displayListData(dbData) {
+// //     listsDisplay.innerHTML = ''
+
+// //     let listData = {}
+
+// //    for (let i = 0; i < dbData.length; i++) {
+// //     if (listData[dbData[i].])
+// //    }
